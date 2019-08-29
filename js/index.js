@@ -49,7 +49,7 @@ function toPercent(point) {
 }
 
 function showCurrentActionImage(name){
-	$("#currentActionImage").attr("src","../image/"+name+".png");
+//	$("#currentActionImage").attr("src","../image/"+name+".png");
 }
 
 function showData(currentSessionIndex, totalSessionCount,currenActionIndex,currentAction, currentPurchasePrediction, currentPurchaseProbability) {
@@ -59,9 +59,8 @@ function showData(currentSessionIndex, totalSessionCount,currenActionIndex,curre
 	$("#CurrentSessionCount").html(currentSessionIndex+1);
 	$("#totalSessionCount").html(totalSessionCount);
 	showCurrentActionImage(currentAction[currenActionIndex]);
-	$("#currentActionName").html(actionName[currentAction[currenActionIndex]]);
-//	$("#currentActionOrder").html(orderIndexName[currenActionIndex+1]);
-	$("#currentActionPrediction").html(currentPurchasePrediction+","+currentPurchaseProbability);
+//	$("#currentActionName").html(actionName[currentAction[currenActionIndex]]);
+//	$("#currentActionPrediction").html(currentPurchasePrediction+","+currentPurchaseProbability);
 }
 
 function showActionsHistory(currenActionIndex,data){
@@ -142,20 +141,20 @@ $(function() {
 	// clearInterval(refreshTask);//清除定时任务
 
 	
-	var submitTask=setInterval(submitTaskFN,timeUnit);
-	var submitTimeOut=1;
-	function submitTaskFN(){
-		var text="Submit my Prediction("+(10-submitTimeOut)+")";
-		$("#submitBTN").val(text);
-		if(submitTimeOut==10){
-			clearInterval(submitTask);
-			$("#submitBTN").val("Submit my Prediction");
-			$("#submitBTN").removeAttr("disabled");
-			$("#submitBTN").attr("onclick","submitEven()");
-			$("#submitBTN").css("background","black");
-		}
-		submitTimeOut++;
-	}
+//	var submitTask=setInterval(submitTaskFN,timeUnit);
+//	var submitTimeOut=1;
+//	function submitTaskFN(){
+//		var text="Submit my Prediction("+(10-submitTimeOut)+")";
+//		$("#submitBTN").val(text);
+//		if(submitTimeOut==10){
+//			clearInterval(submitTask);
+//			$("#submitBTN").val("Submit my Prediction");
+//			$("#submitBTN").removeAttr("disabled");
+//			$("#submitBTN").attr("onclick","submitEven()");
+//			$("#submitBTN").css("background","black");
+//		}
+//		submitTimeOut++;
+//	}
 
 });
 
@@ -163,9 +162,9 @@ function refreshTaskFN() {
 	currentActionIndex++;
 	if (currentActionIndex == currentActionLength) {
 		
-		$("#submitBTN").removeAttr("onclick");
-		$("#submitBTN").attr("disabled","disabled");
-		$("#submitBTN").css("background","#bfbfbf");
+//		$("#submitBTN").removeAttr("onclick");
+//		$("#submitBTN").attr("disabled","disabled");
+//		$("#submitBTN").css("background","#bfbfbf");
 		
 		showActionsHistory(currentActionIndex,mockData[currentSessionIndex]);
 		currentActionIndex = 0;
@@ -183,7 +182,7 @@ function refreshTaskFN() {
 			$("#timeOutMessage").html(timeOutMessage);
 			Missed++;
 			$("#Missed").html(Missed);
-			$("#timeOutDiv").show();
+//			$("#timeOutDiv").show();
 		},1000);
 		return;
 
@@ -253,10 +252,10 @@ function submitEven(){
 function nextEven(ele){
 	$("#"+ele).hide();
 	
-	$("#submitBTN").removeAttr("onclick");
-	$("#submitBTN").attr("disabled","disabled");
-	$("#submitBTN").css("background","#bfbfbf");
-	$("#submitBTN").val("Submit my Prediction(10)");
+//	$("#submitBTN").removeAttr("onclick");
+//	$("#submitBTN").attr("disabled","disabled");
+//	$("#submitBTN").css("background","#bfbfbf");
+//	$("#submitBTN").val("Submit my Prediction(10)");
 	
 	$("input[name='purchaseradio']").prop("checked",false);
 	$("input[name='confidentradio']").prop("checked",false);
@@ -284,20 +283,20 @@ function nextEven(ele){
 	// clearInterval(refreshTask);//清除定时任务
 
 	
-	var submitTask=setInterval(submitTaskFN,timeUnit);
-	var submitTimeOut=1;
-	function submitTaskFN(){
-		var text="Submit my Prediction("+(10-submitTimeOut)+")";
-		$("#submitBTN").val(text);
-		if(submitTimeOut==10){
-			clearInterval(submitTask);
-			$("#submitBTN").val("Submit my Prediction");
-			$("#submitBTN").removeAttr("disabled");
-			$("#submitBTN").attr("onclick","submitEven()");
-			$("#submitBTN").css("background","black");
-		}
-		submitTimeOut++;
-	}
+//	var submitTask=setInterval(submitTaskFN,timeUnit);
+//	var submitTimeOut=1;
+//	function submitTaskFN(){
+//		var text="Submit my Prediction("+(10-submitTimeOut)+")";
+//		$("#submitBTN").val(text);
+//		if(submitTimeOut==10){
+//			clearInterval(submitTask);
+//			$("#submitBTN").val("Submit my Prediction");
+//			$("#submitBTN").removeAttr("disabled");
+//			$("#submitBTN").attr("onclick","submitEven()");
+//			$("#submitBTN").css("background","black");
+//		}
+//		submitTimeOut++;
+//	}
 	
 }
 

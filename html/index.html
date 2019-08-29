@@ -18,7 +18,7 @@
 			<div class="current-session">
 				<div class="cur-left">
 						<p>Current</p>	
-						<p>Session</p>	
+						<p>Customer</p>	
 				</div>
 				<div class="cur-right">
 					<p class="inline-block">
@@ -38,26 +38,26 @@
 			<!-- Current Session 开始  -->
 
 			<!-- Current Action 开始  -->
-			<div class="current-action">
-				<div class="cur-left">
-					<p>Current</p>	
-					<p>Action</p>	
-				</div>
-				<div class="cur-right" >
-						<div class="action-img">
-							<span id="currentActionName" >name</span>
-							<img id="currentActionImage"  src="../image/IV.png" alt="">
-						</div>
-						<div class="action-text">
-							<div class="current-action-prediction">
-								<span class="size16" >System JR14’s Prediction: </span>
-							</div>
-							<div>
-								<span id="currentActionPrediction" class="size60" >NP,40.12%</span>
-							</div>
-						</div>
-				</div>
-			</div>
+<!-- 			<div class="current-action"> -->
+<!-- 				<div class="cur-left"> -->
+<!-- 					<p>Current</p>	 -->
+<!-- 					<p>Action</p>	 -->
+<!-- 				</div> -->
+<!-- 				<div class="cur-right" > -->
+<!-- 						<div class="action-img"> -->
+<!-- 							<span id="currentActionName" >name</span> -->
+<!-- 							<img id="currentActionImage"  src="../image/IV.png" alt=""> -->
+<!-- 						</div> -->
+<!-- 						<div class="action-text"> -->
+<!-- 							<div class="current-action-prediction"> -->
+<!-- 								<span class="size16" >System JR14’s Prediction: </span> -->
+<!-- 							</div> -->
+<!-- 							<div> -->
+<!-- 								<span id="currentActionPrediction" class="size60" >NP,40.12%</span> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
 			<!-- Current Action 结束  -->
 		
 
@@ -230,47 +230,53 @@
 	<div class="right right-top">
 		<div class="box" >
 			<!-- What`s your prediction 开始 -->
+			
 			<div>
-				<p  class="size20">What`s your prediction ?</p>
-				<p class="size14">(if correct ,you will gain points,if wrong,you will lose points)</p>
+				<p  class="size20 ">JR14 Suggests you, currently:</p>
 				<div class="prediction">
-					<label>
-						<input type="radio" name="purchaseradio" value="P" id="pradio" />Purchase Session
-					</label>
-					<label>
-						<input type="radio" name="purchaseradio" value="NP" id="npradio" />Non-Purchase Session
-					</label>
+					<div class="action-text" >
+						<span id="currentActionPrediction" class="size20" >40.12%</span>
+					</div>
+					<div class="action-img" >
+						<img id="currentActionImage"  src="../image/predict-NI.png" alt="">
+					</div>
 				</div>
-	
 			</div>
+			<div></div>
+			<div>
+				<p class="size20">Your Decision:</p>
+				<p class="size14">(if correct,you will gain points, if wrong,you will lose points.)</p>
+			</div>
+			
+			
 			<!-- What`s your prediction 结束 -->
 	
 			<!-- How confident are you 开始 -->
-			<div>
-				<p class="size20">How confident are you ?</p>
-				<p class="size14">(How many points you want to bet?)</p>
+<!-- 			<div> -->
+<!-- 				<p class="size20">How confident are you ?</p> -->
+<!-- 				<p class="size14">(How many points you want to bet?)</p> -->
 	
-				<div class="prediction">
-					<label>
-						<input type="radio" name="confidentradio" value="40" id="confidentradio40" context="Very Confident(*40)" />Very Confident(*40)
-					</label>
-					<label>
-						<input type="radio" name="confidentradio" value="30" id="confidentradio30" context="Confident(*30)" />Confident(*30)
-					</label>
-					<label>
-						<input type="radio" name="confidentradio" value="20" id="confidentradio20" context="Unconfident(*20)" />Unconfident(*20)
-					</label>
-					<label>
-						<input type="radio" name="confidentradio" value="10" id="confidentradio10" context="Very Unconfident(*10)" />Very Unconfident(*10)
-					</label>
-				</div>
+<!-- 				<div class="prediction"> -->
+<!-- 					<label> -->
+<!-- 						<input type="radio" name="confidentradio" value="40" id="confidentradio40" context="Very Confident(*40)" />Very Confident(*40) -->
+<!-- 					</label> -->
+<!-- 					<label> -->
+<!-- 						<input type="radio" name="confidentradio" value="30" id="confidentradio30" context="Confident(*30)" />Confident(*30) -->
+<!-- 					</label> -->
+<!-- 					<label> -->
+<!-- 						<input type="radio" name="confidentradio" value="20" id="confidentradio20" context="Unconfident(*20)" />Unconfident(*20) -->
+<!-- 					</label> -->
+<!-- 					<label> -->
+<!-- 						<input type="radio" name="confidentradio" value="10" id="confidentradio10" context="Very Unconfident(*10)" />Very Unconfident(*10) -->
+<!-- 					</label> -->
+<!-- 				</div> -->
 	
-			</div>
+<!-- 			</div> -->
 			<!-- How confident are you 开始 -->
 	
 			<!-- 提交按钮  开始 -->
 			<div class="submit">
-				<input id="submitBTN" type="button" value="Submit my Prediction(10)" disabled="disabled" />
+				<input id="submitBTN" type="button" value="Intervene this customer" disabled="disabled" />
 			</div>
 			<!-- 提交按钮  结束 -->
 	

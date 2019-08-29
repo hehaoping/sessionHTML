@@ -136,10 +136,8 @@ p{margin:0;}
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff9CC9F3",endColorstr="#ff8BBBE8",GradientType=0);
 }
 .action-img {
-    float: left;
     display: inline-block;
-    width: 250px;
-    height: 100px;
+    height: 65px;
 }
 .action-img span {
     display: inline-block;
@@ -149,13 +147,12 @@ p{margin:0;}
     display: inline-block;
 }
 .action-text {
-    float: left;
+    display: inline-block;
+    height: 65px;
 }
 .action-text>div {
-    text-align:left;
 }
 .action-img img {
-    /* width: 59%; */
     height: 65px;
 }
 .history .cur-left {
@@ -211,8 +208,8 @@ p{margin:0;}
     display: inline-block;
 }
 .prediction {
-    width: 70%;
-    margin: 1px auto;
+    width: 90%;
+    margin: 10px auto;
 }
 .prediction label {
     display: block;
@@ -229,7 +226,7 @@ p{margin:0;}
     padding: 15px 30px;
     color: #fff;
     border: 1px solid #707070;
-    background: #bfbfbf;
+    background: #4b96dc;
     border-radius: 10px;
     margin-top: 10px;
 }
