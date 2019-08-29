@@ -233,7 +233,7 @@
 			
 			<div>
 				<p  class="size20 ">JR14 Suggests you, currently:</p>
-				<div class="prediction">
+				<div class="prediction-action">
 					<div class="action-text" >
 						<span id="currentActionPrediction" class="size20" >40.12%</span>
 					</div>
@@ -276,7 +276,7 @@
 	
 			<!-- 提交按钮  开始 -->
 			<div class="submit">
-				<input id="submitBTN" type="button" value="Intervene this customer" disabled="disabled" />
+				<input id="submitBTN" type="button" value="Intervene this customer"  onclick="showConfident();" />
 			</div>
 			<!-- 提交按钮  结束 -->
 	
@@ -318,11 +318,10 @@
 						<div class="img">
 							<img class="dui" src="../image/dui.png" alt="">
 							<img class="cuo" src="../image/cuo.png" alt="">
+							<img class="missed" src="../image/Missed.png" alt="">
 						</div>
 						<div class="text">
-							<p>JR14`S Prediction:&nbsp;<span id="JRPrediction" >NP,56.00%</span></p>
-							<p>Your Prediction:&nbsp;<span id="youPrediction" >Np,Not Sure(*10)</span></p>
-							<p>the Truth is:&nbsp;<span id="truth" >NP</span></p>
+							<p id="ResultMessage" ></p>
 							<p class="size30">&nbsp;&nbsp;&nbsp;&nbsp;<span id="Result" > Gain 10</span></p>
 						</div>
 					</div>
@@ -356,7 +355,44 @@
 			</div>
 	 </div>
 	<!-- 超时提示 结束 -->
-
+	
+	<!-- How confident are you 开始  -->
+	<div id="ConfidenceLevel" class="box modal" >
+		<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3 class="text-center ">Confidence Level</h3>
+					</div>
+					<div class="modal-body clearfix" style="padding-top: 20px;padding-bottom: 20px;" >
+						<div>
+							<p class="size20">How confident are you ?</p>
+							<p class="size14">(How many points you want to bet?)</p>
+				
+							<div class="prediction">
+								<label>
+									<input type="radio" name="confidentradio" value="40" id="confidentradio40" context="Very Confident(*40)" />Very Confident(*40)
+								</label>
+								<label>
+									<input type="radio" name="confidentradio" value="30" id="confidentradio30" context="Confident(*30)" />Confident(*30)
+								</label>
+								<label>
+									<input type="radio" name="confidentradio" value="20" id="confidentradio20" context="Unconfident(*20)" />Unconfident(*20)
+								</label>
+								<label>
+									<input type="radio" name="confidentradio" value="10" id="confidentradio10" context="Very Unconfident(*10)" />Very Unconfident(*10)
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div class="submit">
+							<input id="" type="button" value="Confirm" onclick="submitEven();" >
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	<!-- How confident are you 结束  -->
 
 </div>
 

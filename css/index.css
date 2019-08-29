@@ -135,25 +135,30 @@ p{margin:0;}
     background-image: linear-gradient(180deg,#000 0,#000);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff9CC9F3",endColorstr="#ff8BBBE8",GradientType=0);
 }
-.action-img {
+.action-img, .action-text {
+    float: left;
     display: inline-block;
     height: 65px;
+    
+}
+.action-img{
+	margin-left: 5px;
 }
 .action-img span {
     display: inline-block;
     width: 250px;
 }
-.action-img img {
-    display: inline-block;
-}
-.action-text {
+.action-text span {
     display: inline-block;
     height: 65px;
+    line-height: 65px;
 }
 .action-text>div {
 }
 .action-img img {
+    display: inline-block;
     height: 65px;
+    line-height: 65px;
 }
 .history .cur-left {
     /* height: 126px; */
@@ -214,6 +219,7 @@ p{margin:0;}
 .prediction-action{
 	width: 90%;
     margin: 10px auto;
+    overflow: hidden;
 }
 .prediction label {
     display: block;
@@ -241,6 +247,10 @@ p{margin:0;}
     /* display: none; */
 }
 .cuo {
+    display: none;
+}
+
+.missed {
     display: none;
 }
 
@@ -272,7 +282,7 @@ p{margin:0;}
     transition: top .3s ease,left .3s ease;
     margin: 0 auto;
     top: 0;
-    width: 500px;
+    width: 600px;
     background: #fff;
 }
 .modal-header {
@@ -305,6 +315,11 @@ p{margin:0;}
     height: 76px;
     margin-top: 29%;
     margin-left: 16px;
+}
+.modal-body .img .missed{
+	height: 76px;
+    margin-top: 26%;
+    width: 180px;
 }
 .modal-body .text {
     float: left;
