@@ -36,7 +36,7 @@ p{margin:0;}
 .left  {
     float: left;
     width: 63%;
-    height:562px;
+    height:452px;
     margin-right: 20px;
     background: #f4f4f4;
     border-radius: 20px;
@@ -52,7 +52,7 @@ p{margin:0;}
     font-weight: bold;
 }
 .right-top {
-    margin-bottom: 15px;
+    margin-bottom: 35px;
 }
 .box {
     padding: 10px 20px;
@@ -231,7 +231,7 @@ p{margin:0;}
 
 .submit {
     width: 60%;
-    margin: 0 auto;
+    margin: 10px auto;
     text-align: center;
 }
 .submit input {

@@ -12,7 +12,7 @@ var mockData = [
 			"Actions" : ['O', 'KS', 'KS', 'KS', 'KS', 'IV', 'KS', 'C', 'KS', 'C', 'C', 'C', 'KS', 'KS', 'C', 'C', 'KS', 'O', 'KS', 'C', 'C', 'KS', 'C'],
 			"TruePurchaseLabel" : "NP",
 			"PurchasePrediction" : ['NI', 'NI', 'NI', 'NI', 'NI', 'NI', 'NI', 'NI', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I'],
-			"PurchaseProbability" : [0.8780, 0.8469, 0.9016, 0.8106, 0.8315, 0.7925, 0.6926, 0.5241, 0.5391, 0.7041, 0.7466, 0.7931, 0.7699, 0.8024, 0.8145, 0.8931, 0.8531, 0.8742, 08517, 0.7976, 0.8026, 0.8578, 0.8241]
+			"PurchaseProbability" : [0.8780, 0.8469, 0.9016, 0.8106, 0.8315, 0.7925, 0.6926, 0.5241, 0.5391, 0.7041, 0.7466, 0.7931, 0.7699, 0.8024, 0.8145, 0.8931, 0.8531, 0.8742, 0.8517, 0.7976, 0.8026, 0.8578, 0.8241]
 		}
 	];
 
@@ -48,8 +48,10 @@ function toPercent(point) {
 function showCurrentActionImage(name){
 	if("NI"==name){
 		$("#currentActionImage").attr("src","../image/predict-NI.png");
+		$("#currentActionPrediction").css("color","#d13959");
 	}else{
 		$("#currentActionImage").attr("src","../image/predict-I.png");
+		$("#currentActionPrediction").css("color","#2ca02c");
 	}
 	
 }
@@ -137,36 +139,16 @@ $(function() {
 	currentActionLength = initData.Actions.length;
 	showData(currentSessionIndex,totalSessionCount,currentActionIndex,initData.Actions,initData.PurchasePrediction[currentActionIndex],toPercent(initData.PurchaseProbability[currentActionIndex]));
 	showActionsHistory(currentActionIndex,initData);
-	var timeUnit=1000;
-	// 定时3秒刷新
+	var timeUnit=2000;
+	// 定时2秒刷新
 	refreshTask = setInterval(refreshTaskFN, timeUnit);
 	// clearInterval(refreshTask);//清除定时任务
-
-	
-//	var submitTask=setInterval(submitTaskFN,timeUnit);
-//	var submitTimeOut=1;
-//	function submitTaskFN(){
-//		var text="Submit my Prediction("+(10-submitTimeOut)+")";
-//		$("#submitBTN").val(text);
-//		if(submitTimeOut==10){
-//			clearInterval(submitTask);
-//			$("#submitBTN").val("Submit my Prediction");
-//			$("#submitBTN").removeAttr("disabled");
-//			$("#submitBTN").attr("onclick","submitEven()");
-//			$("#submitBTN").css("background","black");
-//		}
-//		submitTimeOut++;
-//	}
 
 });
 
 function refreshTaskFN() {
 	currentActionIndex++;
 	if (currentActionIndex == currentActionLength) {
-		
-//		$("#submitBTN").removeAttr("onclick");
-//		$("#submitBTN").attr("disabled","disabled");
-//		$("#submitBTN").css("background","#bfbfbf");
 		
 		showActionsHistory(currentActionIndex,mockData[currentSessionIndex]);
 		
@@ -187,7 +169,6 @@ function refreshTaskFN() {
 				$("#Result").html("Gain&nbsp;"+confidentradio);
 				$("#modal").show();
 				
-				
 			}else{
 				totalpoint=totalpoint-parseInt(confidentradio);
 				$("#totalpoint").html(totalpoint);
@@ -202,17 +183,10 @@ function refreshTaskFN() {
 				$("#Result").html("Lost&nbsp;"+confidentradio);
 				$("#modal").show();
 			}
-//			var timeOutMessage="";
-//			if("P"==currentTruePurchaseLabel){
-//				timeOutMessage="Customer purchased products and Left！You missed your chance to predict !";
-//			}else{
-//				timeOutMessage="Customer didn't purchase anything and Left! You missed your chance to predict !";
-//			}
-//			$("#timeOutMessage").html(timeOutMessage);
-//			$("#timeOutDiv").show();
 		},1000);
+		sendData(userName,mockData[currentSessionIndex].SessionIndex,currentActionIndex,mockData[currentSessionIndex].PurchasePrediction[currentActionIndex-1],"NI",25);
+		
 		currentActionIndex = 0;
-		currentSessionIndex++;
 		time = new Date().getTime();// 时间毫秒数
 		return;
 
@@ -238,25 +212,16 @@ function showConfident(){
 }
 
 function submitEven(){
-//	var purchaseradio = $("input[name='purchaseradio']:checked").val();
-//	if(!purchaseradio||""==purchaseradio){
-//		alert('What`s your prediction ?');
-//		return;
-//	}
 	var confidentradio = $("input[name='confidentradio']:checked").val();
 	if(!confidentradio||""==confidentradio){
 		alert('How confident are you ?');
 		return;
 	}
-//	clearInterval(refreshTask);
 	var data = mockData[currentSessionIndex];
 	var sysPurchasePrediction=data.PurchasePrediction[currentActionIndex];//NI I
 	var sysPurchaseProbability=toPercent(data.PurchaseProbability[currentActionIndex]);
-//	$("#JRPrediction").html(sysPurchasePrediction+",&nbsp"+sysPurchaseProbability);
-//	$("#youPrediction").html(purchaseradio+",&nbsp"+$("input[name='confidentradio']:checked").attr("context"));
-//	$("#truth").html(currentTruePurchaseLabel);
 	if("NP"==currentTruePurchaseLabel&&"I"==sysPurchasePrediction){
-		totalpoint+=totalpoint+parseInt(confidentradio);
+		totalpoint=totalpoint+parseInt(confidentradio);
 		$("#totalpoint").html(totalpoint);
 		correct++;
 		$("#correct").html(correct);
@@ -285,26 +250,21 @@ function submitEven(){
 	$("input[name='confidentradio']").prop("checked",false);
 	$("#ConfidenceLevel").hide();
 	
+	sendData(userName,data.SessionIndex,currentActionIndex+1,sysPurchasePrediction,"I",confidentradio);
+	
 }
 
 function nextEven(ele){
 	$("#"+ele).hide();
-	
-//	$("#submitBTN").removeAttr("onclick");
-//	$("#submitBTN").attr("disabled","disabled");
-//	$("#submitBTN").css("background","#bfbfbf");
-//	$("#submitBTN").val("Submit my Prediction(10)");
-	
-//	$("input[name='purchaseradio']").prop("checked",false);
 	$("input[name='confidentradio']").prop("checked",false);
-	
 	
 	currentActionIndex=0;
 	if("modal"==ele){
 		currentSessionIndex++;
 	}
 	if (currentSessionIndex == mockData.length) {
-		currentSessionIndex = 0;//暂时循环
+		//结束循环
+		//currentSessionIndex = 0;
 		window.location.href="last.html?userName="+userName+"&totalpoint="+totalpoint+"&correct="+correct+"&Wrong="+Wrong+"&Missed="+Missed;
 		return;
 	}
@@ -317,26 +277,10 @@ function nextEven(ele){
 	
 	showData(currentSessionIndex,totalSessionCount,currentActionIndex,initData.Actions,initData.PurchasePrediction[currentActionIndex],toPercent(initData.PurchaseProbability[currentActionIndex]));
 	showActionsHistory(currentActionIndex,initData);
-	var timeUnit=1000;
-	// 定时3秒刷新
+	var timeUnit=2000;
+	// 定时2秒刷新
 	refreshTask = setInterval(refreshTaskFN, timeUnit);
 	// clearInterval(refreshTask);//清除定时任务
-
-	
-//	var submitTask=setInterval(submitTaskFN,timeUnit);
-//	var submitTimeOut=1;
-//	function submitTaskFN(){
-//		var text="Submit my Prediction("+(10-submitTimeOut)+")";
-//		$("#submitBTN").val(text);
-//		if(submitTimeOut==10){
-//			clearInterval(submitTask);
-//			$("#submitBTN").val("Submit my Prediction");
-//			$("#submitBTN").removeAttr("disabled");
-//			$("#submitBTN").attr("onclick","submitEven()");
-//			$("#submitBTN").css("background","black");
-//		}
-//		submitTimeOut++;
-//	}
 	
 }
 
@@ -365,5 +309,25 @@ var orderIndexName={
 	"22":"22 nd",
 	"23":"23 rd",
 	"24":"24 th"
+}
+
+//send system data
+function sendData(user_id,session_index,action_index,intervention_prediction,user_prediction,confidence){
+//	1 当前⽤户的ID user_id
+//	2 当前session的序号 session_index : 数字
+//	3 当前action（第⼏个action）：action_index： 数字 （这个是我要收集的数据，
+//	储存后台就好。）
+//	4 当前展示的intervention_prediction：字⺟ I 或 NI
+//	5 ⽤户预测 user_prediction = I（因为用户点击了按钮 该数据直接标记为I,没有点击按钮时为NI）
+//	6 用户自信度confidence： 数字10、20、30、40（没有点击时为25）
+	
+	console.log("user_id:"+user_id);
+	console.log("session_index:"+session_index);
+	console.log("action_index:"+action_index);
+	console.log("intervention_prediction:"+intervention_prediction);
+	console.log("user_prediction:"+user_prediction);
+	console.log("confidence:"+confidence);
+	console.log(">>>>>>>>>>>>>>");
+
 }
 
