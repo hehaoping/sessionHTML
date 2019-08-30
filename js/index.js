@@ -57,7 +57,7 @@ function showCurrentActionImage(name){
 }
 
 function showData(currentSessionIndex, totalSessionCount,currenActionIndex,currentAction, currentPurchasePrediction, currentPurchaseProbability) {
-	var process= toPercent(currentSessionIndex+1/totalSessionCount);
+	var process= toPercent((currentSessionIndex+1)/totalSessionCount);
 	$("#process").attr("style","width: "+process+";");
 	
 	$("#CurrentSessionCount").html(currentSessionIndex+1);
