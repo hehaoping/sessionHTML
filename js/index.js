@@ -13,6 +13,27 @@ var mockData = [
 			"TruePurchaseLabel" : "NP",
 			"PurchasePrediction" : ['NI', 'NI', 'NI', 'NI', 'NI', 'NI', 'NI', 'NI', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I'],
 			"PurchaseProbability" : [0.8780, 0.8469, 0.9016, 0.8106, 0.8315, 0.7925, 0.6926, 0.5241, 0.5391, 0.7041, 0.7466, 0.7931, 0.7699, 0.8024, 0.8145, 0.8931, 0.8531, 0.8742, 0.8517, 0.7976, 0.8026, 0.8578, 0.8241]
+		},
+		{
+			"SessionIndex" : 3,
+			"Actions" : ['O', 'O', 'O', 'KS', 'IV', 'C', 'C', 'C', 'C', 'AB', 'VB', 'AB', 'VB', 'C', 'AB', 'VB', 'O', 'O', 'O', 'OV'],
+			"TruePurchaseLabel" : "P",
+			"PurchasePrediction" : ['NI', 'NI', 'NI', 'NI', 'NI', 'NI', 'NI', 'NI', 'NI', 'I', 'I', 'NI', 'NI', 'I', 'NI', 'NI', 'NI', 'NI', 'NI', 'NI'],
+			"PurchaseProbability" : [0.9791, 0.9818, 0.8510, 0.8866, 0.7701, 0.6842, 0.6310, 0.5914, 0.6197, 0.5325, 0.6424, 0.7510, 0.6240, 0.6425, 0.8964, 0.821, 0.7362, 0.7531, 0.7196, 0.7931]
+		},
+		{
+			"SessionIndex" : 4,
+			"Actions" : ['O', 'KS', 'IV', 'SI', 'O', 'O', 'SC', 'SI', 'RV', 'AB', 'IV', 'SI', 'O', 'RV', 'AB', 'O', 'OV', 'CMT', 'IV', 'SI'],
+			"TruePurchaseLabel" : "NP",
+			"PurchasePrediction" : ['NI', 'NI', 'NI', 'NI', 'NI', 'NI', 'NI', 'NI', 'NI', 'NI', 'NI', 'I', 'I', 'I', 'NI', 'I', 'I', 'NI', 'I', 'I'],
+			"PurchaseProbability" : [0.9024, 0.9277, 0.8902, 0.8804, 0.7136, 0.6491, 0.5596, 0.5430, 0.5766, 0.8215, 0.7563, 0.7025, 0.5012, 0.6104, 0.8923, 0.7204, 0.6046, 0.7924, 0.5902, 0.5632]
+		},
+		{
+			"SessionIndex" : 5,
+			"Actions" : ['O', 'SI', 'IV', 'C', 'C', 'RV', 'C', 'SI', 'O', 'SI', 'SI', 'SI', 'IV', 'C', 'O', 'IV', 'O', 'SI', 'O', 'SI', 'O', 'SC', 'IV'],
+			"TruePurchaseLabel" : "NP",
+			"PurchasePrediction" : ['NI', 'NI', 'NI', 'NI', 'NI', 'NI', 'NI', 'NI','I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'I'],
+			"PurchaseProbability" : [0.9798, 0.9852, 0.9420, 0.9294, 0.9242, 0.9191, 0.7490, 0.5421, 0.5012, 0.5451, 0.6193, 0.6913, 0.6434, 0.7152, 0.6805, 0.6423, 0.7491, 0.7925, 0.7925, 0.8043, 0.7925, 0.7925, 0.7165]
 		}
 	];
 
