@@ -116,7 +116,12 @@ function showActionsHistory(currenActionIndex,data){
 		$("#actionsimg"+(index)).css("border","1px solid red");
 	}
 	$("#actionsNum"+(index)).html(orderIndexName[index+1]);
-	$("#actionsinfo"+(index)).html(p+"&nbsp;"+pl);
+	if("NI"==p){
+		$("#actionsinfo"+(index)).html('<span style="color: #d13959;" >'+p+'</span>'+"&nbsp;"+pl);
+	}else{
+		$("#actionsinfo"+(index)).html('<span style="color: #2ca02c;" >'+p+'</span>'+"&nbsp;"+pl);
+	}
+	
 	
 }
 
