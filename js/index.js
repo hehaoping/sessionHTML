@@ -180,8 +180,8 @@ function refreshTaskFN() {
 				correct++;
 				$("#correct").html(correct);
 				//显示弹窗
-				$(".cuo").show();
-				$(".dui").hide();
+				$(".cuo").hide();
+				$(".dui").show();
 				$(".missed").hide();
 				$("#ResultMessage").html("Finally the customer purchased products !");
 				$("#Result").html("Gain&nbsp;"+confidentradio);
