@@ -104,20 +104,19 @@ function showActionsHistory(currenActionIndex,data){
 		for(var i=0;i<actionsHistoryinfoList.length;i++){
 			$(actionsHistoryinfoList[i]).empty();
 		}
-	}else{
-		var action=data.Actions;
-		var index=currentActionIndex-1;
-		var p= data.PurchasePrediction[index];
-		var pl= toPercent(data.PurchaseProbability[index]);
-		var imghtml='<img alt="no image" src="../image/'+action[index]+'.png">';
-		$("#actionsimg"+(index)).append(imghtml);
-		$("#actionsimg"+(index)).attr("title",actionName[action[index]]);
-		if(index>9){
-			$("#actionsimg"+(index)).css("border","1px solid red");
-		}
-		$("#actionsNum"+(index)).html(orderIndexName[currenActionIndex]);
-		$("#actionsinfo"+(index)).html(p+"&nbsp;"+pl);
 	}
+	var action=data.Actions;
+	var index=currentActionIndex;
+	var p= data.PurchasePrediction[index];
+	var pl= toPercent(data.PurchaseProbability[index]);
+	var imghtml='<img alt="no image" src="../image/'+action[index]+'.png">';
+	$("#actionsimg"+(index)).append(imghtml);
+	$("#actionsimg"+(index)).attr("title",actionName[action[index]]);
+	if(index>9){
+		$("#actionsimg"+(index)).css("border","1px solid red");
+	}
+	$("#actionsNum"+(index)).html(orderIndexName[index+1]);
+	$("#actionsinfo"+(index)).html(p+"&nbsp;"+pl);
 	
 }
 
@@ -160,7 +159,7 @@ $(function() {
 	currentActionLength = initData.Actions.length;
 	showData(currentSessionIndex,totalSessionCount,currentActionIndex,initData.Actions,initData.PurchasePrediction[currentActionIndex],toPercent(initData.PurchaseProbability[currentActionIndex]));
 	showActionsHistory(currentActionIndex,initData);
-	var timeUnit=2000;
+	var timeUnit=5000;
 	// 定时2秒刷新
 	refreshTask = setInterval(refreshTaskFN, timeUnit);
 	// clearInterval(refreshTask);//清除定时任务
@@ -170,8 +169,6 @@ $(function() {
 function refreshTaskFN() {
 	currentActionIndex++;
 	if (currentActionIndex == currentActionLength) {
-		
-		showActionsHistory(currentActionIndex,mockData[currentSessionIndex]);
 		
 		clearInterval(refreshTask);
 		//不点击时
@@ -298,7 +295,7 @@ function nextEven(ele){
 	
 	showData(currentSessionIndex,totalSessionCount,currentActionIndex,initData.Actions,initData.PurchasePrediction[currentActionIndex],toPercent(initData.PurchaseProbability[currentActionIndex]));
 	showActionsHistory(currentActionIndex,initData);
-	var timeUnit=2000;
+	var timeUnit=5000;
 	// 定时2秒刷新
 	refreshTask = setInterval(refreshTaskFN, timeUnit);
 	// clearInterval(refreshTask);//清除定时任务
