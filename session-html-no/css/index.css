@@ -378,8 +378,28 @@ p{margin:0;}
 .line-heigth10{
 	line-height: 10px;
 }
+.intro{
+	margin: 0 auto;
+    text-align: center;
+}
 
+.intro .img {
+    width: 100%;
+    height:585px;
+    text-align: center;
+    margin: 0 auto;
+}
 
+.intro input.startbtn {
+	width: 500px;
+    background: #000;
+    color:#fff;
+    height: 43px;
+    line-height: 43px;
+    border-radius: 6px;
+    font-size: 23px;
+    margin: 0 auto;
+}
 
 
 
