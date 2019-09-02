@@ -165,8 +165,8 @@ $(function() {
 	currentActionLength = initData.Actions.length;
 	showData(currentSessionIndex,totalSessionCount,currentActionIndex,initData.Actions,initData.PurchasePrediction[currentActionIndex],toPercent(initData.PurchaseProbability[currentActionIndex]));
 	showActionsHistory(currentActionIndex,initData);
-	var timeUnit=3000;
-	// 定时3秒刷新
+	var timeUnit=4000;
+	// 定时4秒刷新
 	refreshTask = setInterval(refreshTaskFN, timeUnit);
 	// clearInterval(refreshTask);//清除定时任务
 
@@ -301,8 +301,8 @@ function nextEven(ele){
 	
 	showData(currentSessionIndex,totalSessionCount,currentActionIndex,initData.Actions,initData.PurchasePrediction[currentActionIndex],toPercent(initData.PurchaseProbability[currentActionIndex]));
 	showActionsHistory(currentActionIndex,initData);
-	var timeUnit=3000;
-	// 定时3秒刷新
+	var timeUnit=4000;
+	// 定时4秒刷新
 	refreshTask = setInterval(refreshTaskFN, timeUnit);
 	// clearInterval(refreshTask);//清除定时任务
 	
